@@ -58,7 +58,6 @@ code {
 
 .modal-dialog {
     width: 100%;
-    background: white;
     position: relative;
     margin: 0 20px;
     max-height: calc(100vh - 40px);
@@ -90,7 +89,6 @@ code {
 .modal-close {
     cursor: pointer;
     padding: 1rem;
-    margin: -1rem -1rem -1rem auto;
 }
 .modal-body {
     overflow: auto;
