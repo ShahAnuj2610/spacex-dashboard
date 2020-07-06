@@ -8,21 +8,28 @@ function getLaunchColor(launch, state) {
     return launch === state ? "text-blue-500" : "";
 }
 
-function getCallApi(launch) {
+function getCallApi(launch, status) {
+    let callApi;
     switch (launch) {
         case "all":
-            return `${BASE_URL}/launches`;
+            callApi = `${BASE_URL}/launches`;
+            break;
         case "upcoming":
-            return `${BASE_URL}/launches/upcoming`;
+            callApi = `${BASE_URL}/launches/upcoming`;
+            break;
         case "past":
-            return `${BASE_URL}/launches/past`;
+            callApi = `${BASE_URL}/launches/past`;
+            break;
         default:
-            return `${BASE_URL}/launches`;
+            callApi = `${BASE_URL}/launches`;
     }
+    if (status === "all") return callApi;
+    return `${callApi}?launch_success=${status === "successful"}`;
 }
 
 function App() {
     const [launch, setLaunch] = useState("all");
+    const [launchStatus, setLaunchStatus] = useState("successful");
 
     return (
         <>
@@ -72,9 +79,40 @@ function App() {
                             Past Launches
                         </a>
                     </nav>
+                    <div className="flex ml-6 items-center">
+                        <span className="mr-3">Launch Status</span>
+                        <div className="relative">
+                            <select
+                                value={launchStatus}
+                                className="rounded border border-gray-700 bg-gray-800 appearance-none py-2 focus:outline-none focus:border-blue-500 text-white pl-3 pr-10"
+                                onChange={(e) =>
+                                    setLaunchStatus(e.target.value)
+                                }
+                            >
+                                <option value="all">All</option>
+                                <option value="successful">Successful</option>
+                                <option value="unsuccessful">
+                                    Unsuccessful
+                                </option>
+                            </select>
+                            <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                                <svg
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    className="w-4 h-4"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </header>
-            <Launches callApi={getCallApi(launch)} />
+            <Launches callApi={getCallApi(launch, launchStatus)} />
         </>
     );
 }
