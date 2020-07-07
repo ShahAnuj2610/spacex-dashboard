@@ -101,7 +101,7 @@ export function LaunchModal({ launchDetail }) {
                                                         .article_link
                                                 }
                                                 target="_blank"
-                                                rel="noreferrer"
+                                                rel="noopener noreferrer"
                                                 className="text-blue-500 inline-flex items-center cursor-pointer"
                                             >
                                                 Learn More
