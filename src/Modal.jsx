@@ -22,11 +22,11 @@ export function Modal({ isVisible = false, title, content, footer, onClose }) {
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="modal-header">
-                    <h3 className="modal-title sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
+                    <h3 className="modal-title sm:text-3xl text-2xl font-medium title-font text-white">
                         {title}
                     </h3>
                     <div
-                        className="modal-close sm:text-3xl text-2xl font-medium title-font mb-4 text-white"
+                        className="modal-close sm:text-3xl text-2xl font-medium title-font text-white"
                         onClick={onClose}
                     >
                         &times;

@@ -65,7 +65,7 @@ const Launches = ({ callApi }) => {
                                 {res.details}
                             </p>
 
-                            <LaunchModal />
+                            <LaunchModal launchDetail={res} />
                         </div>
                     ))}
                 </div>
