@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./App.css";
 import Launches from "./Launches";
@@ -30,6 +30,25 @@ function getCallApi(launch, status) {
 function App() {
     const [launch, setLaunch] = useState("all");
     const [launchStatus, setLaunchStatus] = useState("successful");
+
+    useEffect(() => {
+        const addMouseClass = function () {
+            document.body.classList.add("using-mouse");
+        };
+        document.body.addEventListener("mousedown", addMouseClass);
+
+        // Re-enable focus styling when Tab is pressed
+        const removeMouseClass = function (event) {
+            if (event.keyCode === 9) {
+                document.body.classList.remove("using-mouse");
+            }
+        };
+        document.body.addEventListener("keydown", removeMouseClass);
+        return () => {
+            document.body.removeEventListener("mousedown", addMouseClass);
+            document.body.removeEventListener("keydown", removeMouseClass);
+        };
+    });
 
     return (
         <>
