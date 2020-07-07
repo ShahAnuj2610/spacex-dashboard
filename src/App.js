@@ -48,7 +48,7 @@ function App() {
             document.body.removeEventListener("mousedown", addMouseClass);
             document.body.removeEventListener("keydown", removeMouseClass);
         };
-    });
+    }, []);
 
     return (
         <>
