@@ -39,7 +39,7 @@ export function LaunchModal({ launchDetail }) {
                             <div className="container px-5 py-5 mx-auto flex flex-col">
                                 <div className="lg:w-4/6 mx-auto">
                                     {launchDetail.links.video_link && (
-                                        <div className="rounded-lg h-64 overflow-hidden">
+                                        <div className="rounded-lg h-100 overflow-hidden">
                                             <iframe
                                                 className="object-cover object-center h-full w-full"
                                                 src={`https://www.youtube.com/embed/${getYoutubeId(
@@ -47,12 +47,6 @@ export function LaunchModal({ launchDetail }) {
                                                         .video_link
                                                 )}`}
                                             />
-
-                                            {/* <img */}
-                                            {/*    alt="content" */}
-                                            {/*    className="object-cover object-center h-full w-full" */}
-                                            {/*    src="https://dummyimage.com/1200x500" */}
-                                            {/* /> */}
                                         </div>
                                     )}
                                     <div className="flex flex-col sm:flex-row mt-10">
