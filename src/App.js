@@ -35,7 +35,10 @@ function App() {
         <>
             <header className="fixed text-gray-500 bg-gray-900 body-font w-screen">
                 <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                    <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                    <button
+                        type="button"
+                        className="flex title-font font-medium items-center text-white mb-4 md:mb-0"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -49,9 +52,10 @@ function App() {
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
                         <span className="ml-3 text-xl">SpaceX Launches</span>
-                    </a>
+                    </button>
                     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
-                        <a
+                        <button
+                            type="button"
                             className={`mr-5 hover:text-white cursor-pointer ${getLaunchColor(
                                 launch,
                                 "all"
@@ -59,8 +63,9 @@ function App() {
                             onClick={() => setLaunch("all")}
                         >
                             All Launches
-                        </a>
-                        <a
+                        </button>
+                        <button
+                            type="button"
                             className={`mr-5 hover:text-white cursor-pointer ${getLaunchColor(
                                 launch,
                                 "upcoming"
@@ -68,8 +73,9 @@ function App() {
                             onClick={() => setLaunch("upcoming")}
                         >
                             Upcoming Launches
-                        </a>
-                        <a
+                        </button>
+                        <button
+                            type="button"
                             className={`mr-5 hover:text-white cursor-pointer ${getLaunchColor(
                                 launch,
                                 "past"
@@ -77,7 +83,7 @@ function App() {
                             onClick={() => setLaunch("past")}
                         >
                             Past Launches
-                        </a>
+                        </button>
                     </nav>
                     <div className="flex ml-6 items-center">
                         <span className="mr-3">Launch Status</span>
